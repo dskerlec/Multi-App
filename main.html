@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title id="page-title">Multi-App</title>
+  <script src="scripts.js" type="module"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="globalHeader">
+        <h1>Multi-App</h1>
+        <div id="tabHeaders">
+            <button id='weatherContentButton' class="tabButton">Weather</button>
+            <button id='pomodoroContentButton' class="tabButton">Pomodoro</button>
+            <button id='waterTrackerContentButton' class="tabButton">Water Tracker</button>
+        </div>
+    </div>
+
+    <div id="weatherContent" class="tabContent">
+        <div class="secondaryHeaderTabs">
+            <button id="weatherDailyContentButton" class="secondaryTabButton">Daily Forecast</button>
+            <button id="weatherHourlyContentButton" class="secondaryTabButton">Hourly Forecast</button>
+        </div>
+
+        <input type="text" id="address-input" placeholder="Enter a location" value="Cleveland, Ohio">
+        <button id="searchWeather">Search</button>
+
+        <div id="dailyWeatherContent" class="subTabContent">
+            <div class="row top-daily-forecast-row">
+                <div id="dailyOne" class="weatherBox">Daily Top Left
+                    <img id="dayOneImg" class="weatherImage">
+                  </div>
+                  <div id="dailyTwo" class="weatherBox">Daily Top Mid
+                    <img id="dayTwoImg" class="weatherImage">
+                  </div>
+                  <div id="dailyThree" class="weatherBox">Daily Top Right
+                    <img id="dayThreeImg" class="weatherImage">
+                  </div>
+            </div>
+            <div class="row mid-daily-forecast-row">
+                <div id="dailyToday" class="weatherBox">Daily Today
+                    <img id="dayTodayImg" class="weatherImage">
+                </div>
+            </div>
+            <div class="row bot-daily-forecast-row">
+                <div id="dailyFour" class="weatherBox">Daily Bot Left
+                    <img id="dayFourImg" class="weatherImage">
+                  </div>
+                  <div id="dailyFive" class="weatherBox">Daily Bot Mid
+                    <img id="dayFiveImg" class="weatherImage">
+                  </div>
+                  <div id="dailySix" class="weatherBox">Daily Bot Right
+                    <img id="daySixImg" class="weatherImage">
+                  </div>
+            </div>
+        </div>
+
+        <div id="hourlyWeatherContent" class="subTabContent">
+            <div class="row hourly-temp-row">Hourly Temp Chart</div>
+            <div class="row hourly-precip-row">Hourly Precip Chart</div>
+            <div class="row hourly-wind-row">Hourly Wind Spd Chart</div>
+        </div>
+    </div>
+
+    <div id="pomodoroContent" class="tabContent">
+        <div class="secondaryHeaderTabs">
+            <button id='pomodoroFocusButton' class="secondaryTabButton">Focus!</button>
+            <button id='pomodoroBreakButton' class="secondaryTabButton">Break!</button>
+        </div>
+
+        <div id="pomodoroTimeContainer">
+            <div id="pomodoroTimer">
+                <span id="minutes">00:00</span>
+            </div>
+            <button id="pomodoroStartButton">Start Timer</button>
+        </div>
+
+    </div>
+
+    <div id="waterTrackerContent" class="tabContent">
+        <div id="initialWaterQuestion" class="subTabContent">
+            <p>Do you know how much water you would like to consume today?</p>
+            <input type="radio" id="yes" name="water_consume" value="YES">
+            <label for="YES">Yes</label>
+            <input type="radio" id="no" name="water_consume" value="NO">
+            <label for="NO">No</label>
+        </div>
+
+        <div id="waterTrackerQuestionnaire" class="subTabContent">
+            <div id="calculateRecommendationQuestionnaire">
+                <p>Please fill out the below questions:</p>
+                <p>Gender</p>
+                <input type="radio" id="male" name="gender" value="MALE">
+                <label for="MALE">Male</label>
+                <input type="radio" id="female" name="gender" value="FEMALE">
+                <label for="FEMALE">Female</label>
+                <label for="bodyWeight">Estimated Body Weight:</label>
+                <input type="number" id="bodyWeight" name="body_weight" min="0" max="300">
+                <p>How active are you throughout the day?</p>
+                <input type="radio" id="notActive" name="active_level" value="NOT ACTIVE">
+                <label for="NOT ACTIVE">Not Active</label>
+                <input type="radio" id="moderatelyActive" name="active_level" value="MODERATELY ACTIVE">
+                <label for="MODERATELY ACTIVE">Moderately Active</label>
+                <input type="radio" id="veryActive" name="active_level" value="VERY ACTIVE">
+                <label for="VERY ACTIVE">Very Active</label>
+                <input type="submit" value="Calculate">
+            </div>
+            <label for="intakeQuantity">Today's Water Intake:</label>
+            <input type="number" id="intakeQuantity" name="intake_quantity" min="0" max="200">
+        </div>
+
+        <div id="waterResults" class="subTabContent">
+            <p>Over the 16 waking hours, you should drink:</p> <!--how to get avg in there-->
+            <p>Click on one of these buttons to add water to your total</p>
+            <input type="button" onclick="addWater(ounces)" value=12>
+            <input type="button" onclick="addWater(ounces)" value=8>
+            <input type="button" onclick="addWater(ounces)" value="Custom"> <!--custom val add-->
+            <p>Total Water Drinken Today is:</p> <!--add value and add picture-->
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>
