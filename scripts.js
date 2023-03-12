@@ -7,7 +7,8 @@ let pomodoroFocusBtn = document.getElementById("pomodoroFocusButton");
 let pomodoroBreakBtn = document.getElementById("pomodoroBreakButton");
 let pomodoroStartBtn = document.getElementById("pomodoroStartButton");
 let startTime, interval = 0; //move
-let timerValue = document.getElementById("minutes"); //move
+let timerValueMin = document.getElementById("minutes"); //move
+let timerValueSec = document.getElementById("seconds");
 let waterTrackerBtn =document.getElementById("waterTrackerContentButton");
 
 weatherBtn.addEventListener("click", () => {
@@ -30,8 +31,8 @@ pomodoroBreakBtn.addEventListener("click", () => {
     changePomodoroTimer(15);
 });
 pomodoroStartBtn.addEventListener("click", () => {
-    startTime = timerValue.textContent;
-    startPomodoroTimer(startTime, timerValue);
+    startTime = timerValueMin.textContent;
+    startPomodoroTimer(startTime, timerValueMin, timerValueSec);
 })
 
 
@@ -70,35 +71,37 @@ function changePomodoroTimer(time) {
         {
             clearInterval(interval)
             interval = 0;
-            document.getElementById("minutes").textContent=time;
+            timerValueMin.textContent=time;
+            timerValueSec.textContent="00";
         }
     }
     else
     {
-        document.getElementById("minutes").textContent=time;
+        timerValueMin.textContent=time;
+        timerValueSec.textContent="00";
     }
 }
 
-function startPomodoroTimer(timeValue, content) {
+function startPomodoroTimer(timeValue, contentMin, contentSec) {
     if (timeValue != 0 && !interval)
     {
         let currentTime = Date.now();
         let endTime = Date.now() + (timeValue*60000);
         let secondsLeft = (endTime - currentTime)/1000;
-        let min, sec;
         interval = setInterval(function () {
-            min = parseInt(secondsLeft / 60, 10);
+            let min = parseInt(secondsLeft / 60, 10);
             min = min < 10 ? "0" + min : min;
-            sec = parseInt(secondsLeft % 60, 10);
+            let sec = parseInt(secondsLeft % 60, 10);
             sec = sec < 10 ? "0" + sec : sec;
     
-            content.textContent = `${min}:${sec}`;
+            contentMin.textContent = min;
+            contentSec.textContent = sec;
     
             if (--secondsLeft < 0) {
                 clearInterval(interval)
                 interval = 0;
             }
     
-        }, 1000);
+        }, 10);
     }
 }

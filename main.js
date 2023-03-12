@@ -13,16 +13,16 @@ const overmorrowDiv = document.querySelector("#dailyThree");
 const nowDiv = document.querySelector("#hourlyOne");
 const nextHoursDiv = document.querySelector("#hourlyTwo");
 const laterHoursDiv = document.querySelector("#hourlyThree");
-const todayImg = document.querySelector("#todayImg");
-const tomorrowImg = document.querySelector("#tomorrowImg");
-const overmorrowImg = document.querySelector("#overmorrowImg");
+const todayImg = document.querySelector("#dayOneImg");
+const tomorrowImg = document.querySelector("#dayTwoImg");
+const overmorrowImg = document.querySelector("#dayThreeImg");
 const nowImg = document.querySelector("#nowImg");
 const nextHoursImg = document.querySelector("#nextHoursImg");
 const laterHoursImg = document.querySelector("#laterHoursImg");
 
 //date stuff for getting current time stamps
 let date = new Date();
-let dayIndex = date.getDay();
+// let dayIndex = date.getDay();
 let hour = getCurrentHour(date);
 
 
@@ -30,14 +30,14 @@ let hour = getCurrentHour(date);
 let weatherData;
 
 //weather data variables to be set
-let todayForecast = new DailyWeather(dayIndex);
-let tomorrowForecast = new DailyWeather(dayIndex + 1);
-let overmorrowForecast = new DailyWeather(dayIndex + 2);
+let zeroForecast = new DailyWeather(0);
+let oneForecast = new DailyWeather(1);
+let twoForecast = new DailyWeather(2);
 
 let nowForecast = new HourlyWeather(hour);
 let nextForecast = new HourlyWeather(hour + 3);
 let laterForecast = new HourlyWeather(hour + 6);
-let forecasts = [todayForecast, tomorrowForecast, overmorrowForecast, nowForecast, nextForecast, laterForecast];
+let forecasts = [zeroForecast, oneForecast, twoForecast, nowForecast, nextForecast, laterForecast];
 
 function fetchWeather(apiUrl) {
   return fetch(apiUrl)
@@ -100,11 +100,11 @@ function displayWeatherData(forecast) {
 function getCorrespondingDiv(forecast) {
   if (forecast.type === "Daily") {
     switch (forecast.dayClassification) {
-      case dayIndex:
+      case 0:
         return todayDiv;
-      case dayIndex + 1: 
+      case 1: 
         return tomorrowDiv;
-      case dayIndex + 2:
+      case 2:
         return overmorrowDiv;
       default:
       //error
@@ -126,11 +126,11 @@ function getCorrespondingDiv(forecast) {
 function getCorrespondingImg(forecast) {
   if (forecast.type === "Daily") {
     switch (forecast.dayClassification) {
-      case dayIndex:
+      case 0:
         return todayImg;
-      case dayIndex + 1: 
+      case 1: 
         return tomorrowImg;
-      case dayIndex + 2:
+      case 2:
         return overmorrowImg;
       default:
       //error
@@ -163,7 +163,7 @@ function getHour(data, hourIndex) {
 
 // This button updates the longitutde/latitude in the query url
 var userInput = document.getElementById("address-input");
-var searchBtn = document.getElementById("search");
+var searchBtn = document.getElementById("searchWeather");
 
 searchBtn.addEventListener("click", () => {
   updateGeocoding(userInput.value)
