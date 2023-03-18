@@ -6,9 +6,9 @@
   <title id="page-title">Multi-App</title>
   <script src="scripts.js" type="module"></script>
   <script src="weatherDescriptions.js" type="module"></script>
+  <script src="weatherFunctions.js" type="module" ></script>
   <script src="weather.js" type="module" ></script>
   <script src="maps.js" type="module" ></script>
-  <script src="main.js" type="module" ></script>
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -32,31 +32,27 @@
         <button id="searchWeather">Search</button>
 
         <div id="dailyWeatherContent" class="subTabContent">
-            <div class="row top-daily-forecast-row">
-                <div id="dailyOne" class="weatherBox">Daily Top Left
-                    <img id="dayOneImg" class="weatherImage">
+            <div class="row daily-forecast-row">
+                <div id="dailySun" class="weatherBox">Daily Box 1
+                    <img id="daySunImg" class="weatherImage">
                   </div>
-                  <div id="dailyTwo" class="weatherBox">Daily Top Mid
-                    <img id="dayTwoImg" class="weatherImage">
+                  <div id="dailyMon" class="weatherBox">Daily Box 2
+                    <img id="dayMonImg" class="weatherImage">
                   </div>
-                  <div id="dailyThree" class="weatherBox">Daily Top Right
-                    <img id="dayThreeImg" class="weatherImage">
+                  <div id="dailyTue" class="weatherBox">Daily Box 3
+                    <img id="dayTueImg" class="weatherImage">
                   </div>
-            </div>
-            <div class="row mid-daily-forecast-row">
-                <div id="dailyToday" class="weatherBox">Daily Today
-                    <img id="dayTodayImg" class="weatherImage">
-                </div>
-            </div>
-            <div class="row bot-daily-forecast-row">
-                <div id="dailyFour" class="weatherBox">Daily Bot Left
-                    <img id="dayFourImg" class="weatherImage">
+                  <div id="dailyWed" class="weatherBox">Daily Box 4
+                    <img id="dayWedImg" class="weatherImage">
                   </div>
-                  <div id="dailyFive" class="weatherBox">Daily Bot Mid
-                    <img id="dayFiveImg" class="weatherImage">
+                  <div id="dailyThu" class="weatherBox">Daily Box 5
+                    <img id="dayThuImg" class="weatherImage">
                   </div>
-                  <div id="dailySix" class="weatherBox">Daily Bot Right
-                    <img id="daySixImg" class="weatherImage">
+                  <div id="dailyFri" class="weatherBox">Daily Box 6
+                    <img id="dayFriImg" class="weatherImage">
+                  </div>
+                  <div id="dailySat" class="weatherBox">Daily Box 7
+                    <img id="daySatImg" class="weatherImage">
                   </div>
             </div>
         </div>

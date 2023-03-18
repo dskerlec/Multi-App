@@ -35,6 +35,10 @@ pomodoroStartBtn.addEventListener("click", () => {
     startPomodoroTimer(startTime, timerValueMin, timerValueSec);
 })
 
+pomodoroBtn.addEventListener("click", () => {
+    openTabContent("pomodoroContent");
+});
+
 
 waterTrackerBtn.addEventListener("click", () => {
     openTabContent("waterTrackerContent");
