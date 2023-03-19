@@ -33,25 +33,25 @@
 
         <div id="dailyWeatherContent" class="subTabContent">
             <div class="row daily-forecast-row">
-                <div id="dailySun" class="weatherBox">Daily Box 1
+                <div id="dailySun" class="weatherBox">
                     <img id="daySunImg" class="weatherImage">
                   </div>
-                  <div id="dailyMon" class="weatherBox">Daily Box 2
+                  <div id="dailyMon" class="weatherBox">
                     <img id="dayMonImg" class="weatherImage">
                   </div>
-                  <div id="dailyTue" class="weatherBox">Daily Box 3
+                  <div id="dailyTue" class="weatherBox">
                     <img id="dayTueImg" class="weatherImage">
                   </div>
-                  <div id="dailyWed" class="weatherBox">Daily Box 4
+                  <div id="dailyWed" class="weatherBox">
                     <img id="dayWedImg" class="weatherImage">
                   </div>
-                  <div id="dailyThu" class="weatherBox">Daily Box 5
+                  <div id="dailyThu" class="weatherBox">
                     <img id="dayThuImg" class="weatherImage">
                   </div>
-                  <div id="dailyFri" class="weatherBox">Daily Box 6
+                  <div id="dailyFri" class="weatherBox">
                     <img id="dayFriImg" class="weatherImage">
                   </div>
-                  <div id="dailySat" class="weatherBox">Daily Box 7
+                  <div id="dailySat" class="weatherBox">
                     <img id="daySatImg" class="weatherImage">
                   </div>
             </div>
@@ -80,7 +80,7 @@
     </div>
 
     <div id="waterTrackerContent" class="tabContent">
-        <div id="initialWaterQuestion" class="subTabContent">
+        <div id="initialWaterQuestion" class="initialContent">
             <p>Do you know how much water you would like to consume today?</p>
             <input type="radio" id="yes" name="water_consume" value="YES">
             <label for="YES">Yes</label>
@@ -107,6 +107,9 @@
                 <label for="VERY ACTIVE">Very Active</label>
                 <input type="submit" value="Calculate">
             </div>
+        </div>
+
+        <div id="waterConsumeLabel" class="subTabContent">
             <label for="intakeQuantity">Today's Water Intake:</label>
             <input type="number" id="intakeQuantity" name="intake_quantity" min="0" max="200">
         </div>
